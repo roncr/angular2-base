@@ -27,6 +27,10 @@ gulp.task('build.prod', done =>
                 'tslint',
                 'css-lint',
                 'build.assets.prod',
+                'build.css',
+                'build.html',
+                'copy.js.prod',
+                'build.js.prod',
                 done));
 
 
