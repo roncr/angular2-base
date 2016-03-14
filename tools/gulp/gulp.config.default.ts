@@ -14,8 +14,10 @@ export class Config {
 
     // Target Folders
     APP_DIST        = 'dist';
-    TMP_DIR         = `${this.APP_DIST}/tmp`;
+    TMP_DIR         = `${this.APP_DIST}/tmp`; // TODO: what is this for?
     APP_DEST        = `${this.APP_DIST}/${this.ENV}`; // TODO: have only one dist, or change names
+    DEV_DEST        = `${this.APP_DIST}/dev`; // TODO: remove this, have only 1 dist
+    PROD_DEST       = `${this.APP_DIST}/prod`; // TODO: remove this, have only 1 dist
     CSS_DEST        = `${this.APP_DEST}/css`;
 
     // Target Filenames

@@ -4,6 +4,13 @@ import * as requireDir from 'require-dir';
 
 requireDir('./tools/gulp/tasks');
 
+
+// --------------
+// Build prod.
+gulp.task('build.prod', done =>
+    runSequence('clean.prod',
+        done));
+
 // --------------
 // Build dev.
 gulp.task('build.dev', done => {

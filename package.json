@@ -4,9 +4,10 @@
   "description": "Angular Base Project",
   "main": "index.js",
   "scripts": {
+    "build.dev": "gulp build.dev",
+    "build.prod": "gulp build.prod",
     "postinstall": "typings install",
-    "start": "gulp serve.dev",
-    "server": "gulp server.start"
+    "start": "gulp serve.dev"
   },
   "author": "",
   "license": "ISC",
