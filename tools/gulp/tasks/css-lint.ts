@@ -1,5 +1,4 @@
 import * as gulp from 'gulp';
-import {join} from 'path';
 import * as merge from 'merge-stream';
 import * as doiuse from 'doiuse';
 import * as colorguard from 'colorguard';
@@ -18,14 +17,14 @@ const processors = [
     }),
     colorguard(),
     stylelint(),
-    reporter({clearMessages: true}) // TODO: consider a different reporter
+    reporter({clearMessages: true}) // TODO: consider a different reporter so no postcss is required
 ];
 
 // Lints the css that is defined next to the components
 function lintComponentCss() {
     let src = [
-        join(Config.APP_SRC, '**', '*.css'),
-        '!' + join(Config.APP_SRC, 'assets', '**', '*.css')
+        `${Config.APP_SRC}/**/*.css`,
+        `!${Config.APP_SRC}/assets/**/*.css`
     ];
 
     return gulp.src(src)

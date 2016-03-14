@@ -10,6 +10,7 @@ export class Config {
     // Source
     APP_SRC         = 'src';
     APP_STYLES      = `${this.APP_SRC}/styles`;
+    APP_ASSETS      = `${this.APP_SRC}/assets`;
     TOOLS_DIR       = 'tools';
 
     // Target Folders

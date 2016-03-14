@@ -6,12 +6,6 @@ requireDir('./tools/gulp/tasks');
 
 
 // --------------
-// Build prod.
-gulp.task('build.prod', done =>
-    runSequence('clean.prod',
-        done));
-
-// --------------
 // Build dev.
 gulp.task('build.dev', done => {
     runSequence('clean.dev',
@@ -24,6 +18,16 @@ gulp.task('build.dev', done => {
                 'build.index.dev',
                 done);
 });
+
+
+// --------------
+// Build prod.
+gulp.task('build.prod', done =>
+    runSequence('clean.prod',
+                'tslint',
+                'css-lint',
+                'build.assets.prod',
+                done));
 
 
 // --------------

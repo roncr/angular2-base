@@ -1,12 +1,10 @@
 import * as gulp from 'gulp';
-import {readFileSync} from 'fs';
+import { readFileSync } from 'fs';
 import * as gulpPlugins from 'gulp-load-plugins';
-
 import Config from '../gulp.config';
 
 const plugins = <any>gulpPlugins();
 
-// TODO: consider using join(...)
 gulp.task('tslint', done => {
     const NG2LINT_RULES = customTSLintRules();
     let src = [`${Config.APP_SRC}/**/*.ts`, `!${Config.APP_SRC}/**/*.d.ts`]; // include the tasks in the linting process
