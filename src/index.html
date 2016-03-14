@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular 2 - Base Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <!-- shims:js -->
+    <!-- endinject -->
+    <!-- End of IE required polyfills -->
+
+    <script>
+        System.config({
+            "defaultJSExtensions": true
+        });
+    </script>
+
+    <!-- libs:js -->
+    <!-- endinject -->
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.import('js/main')
+                .then(null, console.error.bind(console));
+    </script>
+
+</head>
+<body>
+<app>Loading...</app>
+</body>
+</html>
