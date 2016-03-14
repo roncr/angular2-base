@@ -22,7 +22,7 @@ gulp.task('build.dev', done => {
 
 // --------------
 // Build prod.
-gulp.task('build.prod', done =>
+gulp.task('build.prod', done => {
     runSequence('clean.prod',
                 'tslint',
                 'css-lint',
@@ -31,7 +31,11 @@ gulp.task('build.prod', done =>
                 'build.html',
                 'copy.js.prod',
                 'build.js.prod',
-                done));
+                'build.bundles.shims',
+                'build.bundles.app',
+                'build.index.prod',
+                done);
+});
 
 
 // --------------
