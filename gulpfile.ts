@@ -24,5 +24,6 @@ gulp.task('build:dev', done => {
 gulp.task('serve:dev', done => {
     runSequence('build:dev',
                 'server.start',
+                'watch.dev',
                 done);
 });

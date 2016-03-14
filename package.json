@@ -30,6 +30,7 @@
     "gulp-tslint-stylish": "^1.1.1",
     "gulp-typescript": "^2.12.1",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
     "lite-server": "^2.1.0",
     "merge-stream": "^1.0.0",
     "ng2lint": "0.0.10",
