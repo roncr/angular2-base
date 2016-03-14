@@ -51,4 +51,4 @@ function getExternalCss() {
 }
 
 // TODO: merge the src, instead of merge the stream
-gulp.task('build:css', () => merge(processComponentCss(), processExternalCss()));
+gulp.task('build.css', () => merge(processComponentCss(), processExternalCss()));

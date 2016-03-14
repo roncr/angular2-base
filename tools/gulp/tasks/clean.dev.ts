@@ -4,7 +4,7 @@ import * as chalk from 'chalk';
 import * as rimraf from 'rimraf';
 
 // TODO: make the core method reusable, so the path can be a variable
-gulp.task('clean:dev', done => {
+gulp.task('clean.dev', done => {
     let paths:string|string[] = '/dist';
     let pathsArray: string[];
     if (!(paths instanceof Array)) {

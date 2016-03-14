@@ -6,23 +6,23 @@ requireDir('./tools/gulp/tasks');
 
 // --------------
 // Build dev.
-gulp.task('build:dev', done => {
-    runSequence('clean:dev',
+gulp.task('build.dev', done => {
+    runSequence('clean.dev',
                 'tslint',
                 'css-lint',
-                'build:assets:dev',
-                'build:css',
-                'build:html',
-                'build:js:dev',
-                'build:index:dev',
+                'build.assets.dev',
+                'build.css',
+                'build.html',
+                'build.js.dev',
+                'build.index.dev',
                 done);
 });
 
 
 // --------------
 // Serve dev
-gulp.task('serve:dev', done => {
-    runSequence('build:dev',
+gulp.task('serve.dev', done => {
+    runSequence('build.dev',
                 'server.start',
                 'watch.dev',
                 done);

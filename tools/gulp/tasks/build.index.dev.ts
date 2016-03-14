@@ -34,7 +34,7 @@ function transformPath() {
     };
 }
 
-gulp.task('build:index:dev', () => {
+gulp.task('build.index.dev', () => {
     return gulp.src(join(Config.APP_SRC, 'index.html'))
         .pipe(inject('shims'))
         .pipe(inject('libs'))

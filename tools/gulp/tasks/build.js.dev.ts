@@ -9,7 +9,7 @@ function makeTsProject() {
     return plugins.typescript.createProject('tsconfig.json');
 }
 
-gulp.task('build:js:dev', () => {
+gulp.task('build.js.dev', () => {
     let tsProject = makeTsProject();
     let src = [
         'typings/browser.d.ts',
