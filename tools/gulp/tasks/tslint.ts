@@ -5,10 +5,14 @@ import Config from '../gulp.config';
 
 const plugins = <any>gulpPlugins();
 
-gulp.task('tslint', done => {
+gulp.task('tslint', () => {
     const customRulesDir = TSLintHelper.getCustomRulesDir('tslint.json');
 
-    let src = [`${Config.APP_SRC}/**/*.ts`, `!${Config.APP_SRC}/**/*.d.ts`]; // include the tasks in the linting process
+    let src = [
+        `${Config.APP_SRC}/**/*.ts`,
+        `!${Config.APP_SRC}/**/*.d.ts`
+    ];
+
     return gulp.src(src)
         .pipe(plugins.tslint({
             rulesDirectory: customRulesDir
