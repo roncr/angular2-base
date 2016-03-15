@@ -2,7 +2,6 @@ import * as util from 'gulp-util';
 import * as chalk from 'chalk';
 import * as rimraf from 'rimraf';
 
-// TODO: once the output folder is just 1 dir, this method could return to be into a task
 export default function clean(paths: string|string[], done) {
     let pathsArray: string[];
     if (!(paths instanceof Array)) {
