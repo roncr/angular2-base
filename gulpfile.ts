@@ -22,6 +22,7 @@ gulp.task('build.dev', done => {
 
 // --------------
 // Build prod.
+// TODO: streamline production pipeline
 gulp.task('build.prod', done => {
     runSequence('clean.prod',
                 'tslint',
@@ -37,6 +38,16 @@ gulp.task('build.prod', done => {
                 done);
 });
 
+// --------------
+// Build test.
+gulp.task('build.test', (done: any) =>
+    runSequence('clean.dev',
+                'tslint',
+                'build.assets.dev',
+                'build.js.test',
+                'build.index.dev',
+                done));
+
 
 // --------------
 // Serve dev
@@ -46,3 +57,32 @@ gulp.task('serve.dev', done => {
                 'watch.dev',
                 done);
 });
+
+
+// --------------
+// Serve prod
+gulp.task('serve.prod', ['build.prod']);
+
+
+// --------------
+// Test.
+// TODO: re-do all testing tasks, remove all dependencies karma-* jasmine-* phantomjs-*
+gulp.task('test', (done: any) =>
+    runSequence('build.test',
+                'karma.start',
+                done));
+
+
+
+
+// --------------
+// [done] Build dev.
+// Build e2e.
+// [done] Build prod.
+// [done] Build test.
+// Build test watch.
+// Build tools.
+// Docs
+// [done] Serve dev
+// Serve e2e
+// [done] Test.
