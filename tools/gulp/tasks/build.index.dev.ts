@@ -39,6 +39,6 @@ gulp.task('build.index.dev', () => {
         .pipe(inject('shims'))
         .pipe(inject('libs'))
         .pipe(inject())
-        // TODO: consider if using gulp-template adds any value. It passes variables from config to the js, variables like env
+        .pipe(plugins.template(Config)) // TODO: this is done to make changes in the index.html. remove this. remove gulp-template as well
         .pipe(gulp.dest(Config.APP_DEST));
 });

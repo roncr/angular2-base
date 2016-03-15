@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <title>Angular 2 - Base Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <my-app>Loading...</my-app>
 
-    <!-- 1. Load libraries -->
+    <script>
+        // TODO: find a definitive solution to this
+        // Fixes undefined module function in SystemJS bundle
+        function module() {}
+    </script>
+
     <!-- IE required polyfills, in this exact order -->
     <!-- shims:js -->
     <!-- endinject -->
     <!-- End of IE required polyfills -->
 
+    <!--  TODO: remove the need to do this template thing -->
+    <% if (ENV === 'dev') { %>
     <script>
         System.config({
             "defaultJSExtensions": true
         });
     </script>
+    <% } %>
 
     <!-- libs:js -->
     <!-- endinject -->
@@ -23,14 +34,13 @@
     <!-- inject:js -->
     <!-- endinject -->
 
-    <!-- 2. Configure SystemJS -->
+    <!--  TODO: remove the need to do this template thing -->
+    <% if (ENV === 'dev') { %>
     <script>
         System.import('js/main')
                 .then(null, console.error.bind(console));
     </script>
+    <% } %>
 
-</head>
-<body>
-<app>Loading...</app>
 </body>
 </html>

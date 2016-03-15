@@ -7,7 +7,8 @@
     "build.dev": "gulp build.dev",
     "build.prod": "gulp build.prod",
     "postinstall": "typings install",
-    "start": "gulp serve.dev"
+    "start": "gulp serve.dev",
+    "server.prod": "gulp  server.start"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +30,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-template": "^3.1.0",
     "gulp-tslint": "^4.3.3",
     "gulp-tslint-stylish": "^1.1.1",
     "gulp-typescript": "^2.12.1",
