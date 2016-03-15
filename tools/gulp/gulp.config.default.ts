@@ -19,6 +19,7 @@ export class Config {
     APP_STYLES           = `${this.APP_SRC}/css`;
     APP_ASSETS           = `${this.APP_SRC}/assets`;
     TOOLS_DIR            = 'tools';
+    TESTS_COVERAGE_DIR   = 'coverage';
 
     // Target Folders
     APP_DIST             = 'dist';
