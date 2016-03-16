@@ -7,7 +7,7 @@ import * as gulpPlugins from 'gulp-load-plugins';
 import Config from '../gulp.config';
 
 const plugins = <any>gulpPlugins();
-const isProd = Config.ENV === 'prod'; // TODO: validate what is this variable for
+const isProd = Config.ENV === 'prod'; // TODO: remove the need of this and the usage of the tmp folder
 
 const processors = [
     // TODO: auto-prefixer may not be necessary
@@ -26,15 +26,10 @@ if (isProd) {
 }
 
 function processComponentCss() {
-    let src = [
-        `${Config.APP_SRC}/**/*.css`,
-        `!${Config.APP_SRC}/assets/**/*.css`
-    ];
-
-    return gulp.src(src)
+    return gulp.src(`${Config.APP_SRC}/**/*.css`)
         .pipe(isProd ? plugins.cached('process-component-css') : plugins.util.noop())
         .pipe(plugins.postcss(processors))
-        .pipe(gulp.dest(isProd ? Config.TMP_DIR: Config.APP_DEST)); // TODO: what is the tmp for?
+        .pipe(gulp.dest(isProd ? Config.TMP_DIR: Config.APP_DEST)); // TODO: remove the need for the tmp folder
 }
 
 function processExternalCss() {

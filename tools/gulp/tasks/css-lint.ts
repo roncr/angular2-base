@@ -9,7 +9,7 @@ import * as gulpPlugins from 'gulp-load-plugins';
 import Config from '../gulp.config';
 
 const plugins = <any>gulpPlugins();
-const isProd = Config.ENV === 'prod'; // TODO: validate what is this variable for
+const isProd = Config.ENV === 'prod'; // TODO: remove the need of this variable
 
 const processors = [
     doiuse({
@@ -20,31 +20,48 @@ const processors = [
     reporter({clearMessages: true}) // TODO: consider a different reporter so no postcss is required
 ];
 
-// Lints the css that is defined next to the components
-function lintComponentCss() {
-    let src = [
-        `${Config.APP_SRC}/**/*.css`,
-        `!${Config.APP_SRC}/assets/**/*.css`
-    ];
+//// Lints the css that is defined next to the components
+//function lintComponentCss() {
+//    console.log(`${Config.APP_SRC}/**/*.css`);
+//    return gulp.src(`${Config.APP_SRC}/**/*.css`)
+//        .pipe(isProd ? plugins.cached('css-lint') : plugins.util.noop())
+//        // PostCSS is used to transform/pass css through several processors
+//        .pipe(plugins.postcss(processors));
+//}
+//
+//// Lints the css that is available outisde the components
+//function lintExternalCss() {
+//    console.log(getExternalCss().map(r => r.src));
+//    return gulp.src(getExternalCss().map(r => r.src))
+//        .pipe(isProd ? plugins.cached('css-lint') : plugins.util.noop())
+//        // PostCSS is used to transform/pass css through several processors
+//        .pipe(plugins.postcss(processors));
+//}
+//
+//// Loads the css files that live outside the components
+//function getExternalCss() {
+//    return Config.APP_RESOURCES.filter(d => /\.css$/.test(d.src) && !d.vendor);
+//}
+
+function lintCss() {
+    // CSS files next to components
+    let componentCssSrc = `${Config.APP_SRC}/**/*.css`;
+
+    // CSS files to live outside the components
+    let externalCssSrc = getExternalCss().map(r => r.src);
+
+    let src = [componentCssSrc, ...externalCssSrc];
 
     return gulp.src(src)
-        // TODO: why postcss?
         .pipe(isProd ? plugins.cached('css-lint') : plugins.util.noop())
+        // PostCSS is used to transform/pass css through several processors
         .pipe(plugins.postcss(processors));
-}
 
-// Lints the css that is available outisde the components
-function lintExternalCss() {
-    return gulp.src(getExternalCss().map(r => r.src))
-        // TODO: why postcss?
-        .pipe(isProd ? plugins.cached('css-lint') : plugins.util.noop())
-        .pipe(plugins.postcss(processors));
-}
+};
 
-// Loads the css files that live outside the components
 function getExternalCss() {
     return Config.APP_RESOURCES.filter(d => /\.css$/.test(d.src) && !d.vendor);
 }
 
 // TODO: merge the src in both methods, so that only 1 method is required
-gulp.task('css-lint', () => merge(lintComponentCss(), lintExternalCss()));
+gulp.task('css-lint', () => lintCss());
