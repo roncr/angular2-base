@@ -81,15 +81,9 @@ gulp.task('docs', (done: any) =>
                 done));
 
 
-// TODO: pending e2e tesing
+// TODO: pending tasks
 // --------------
-// [done] Build dev.
-// Build e2e.
-// [done] Build prod.
-// [done] Build test.
+// Build e2e
 // Build test watch.
 // Build tools.
-// Docs
-// [done] Serve dev
 // Serve e2e
-// [done] Test.

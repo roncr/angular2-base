@@ -16,7 +16,7 @@ const processors = [
         browsers: Config.BROWSER_LIST,
     }),
     colorguard(),
-    //stylelint(),
+    stylelint(),
     reporter({clearMessages: true}) // TODO: consider a different reporter so no postcss is required
 ];
 

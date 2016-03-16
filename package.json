@@ -62,6 +62,7 @@
     "run-sequence": "^1.1.5",
     "serve-static": "^1.10.2",
     "stylelint": "^5.0.1",
+    "stylelint-config-standard": "^4.0.1",
     "systemjs-builder": "^0.15.13",
     "ts-node": "^0.5.5",
     "tslint": "^3.5.0",
