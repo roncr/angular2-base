@@ -20,6 +20,7 @@ gulp.task('build.assets.prod', () => {
             `${Config.APP_SRC}/**`,
             `!${Config.APP_SRC}/**/*.ts`,
             `!${Config.APP_SRC}/**/*.css`,
+            `!${Config.APP_SRC}/**/*.scss`,
             `!${Config.APP_SRC}/**/*.html`,
             `!${Config.APP_ASSETS}/**/*.js`
         ])

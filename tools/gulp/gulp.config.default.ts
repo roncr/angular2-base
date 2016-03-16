@@ -40,7 +40,7 @@ export class Config {
 
     // Other
     APP_RESOURCES: InjectableDependency[] = [
-        { src: `${this.APP_STYLES}/main.css`, inject: true, vendor: false }
+        { src: `${this.APP_STYLES}/main.scss`, inject: true, vendor: false }
     ];
 
     // TODO: find an alternative to don't handle this dependencies manually

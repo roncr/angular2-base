@@ -10,9 +10,9 @@ requireDir('./tools/gulp/tasks');
 gulp.task('build.dev', done => {
     runSequence('clean.dev',
                 'tslint',
-                'css-lint',
+                //'css-lint',
                 'build.assets.dev',
-                'build.css',
+                'build.sass.dev',
                 'build.html',
                 'build.js.dev',
                 'build.index.dev',
@@ -26,9 +26,9 @@ gulp.task('build.dev', done => {
 gulp.task('build.prod', done => {
     runSequence('clean.prod',
                 'tslint',
-                'css-lint',
+                //'css-lint',
                 'build.assets.prod',
-                'build.css',
+                'build.sass.prod',
                 'build.html',
                 'copy.js.prod',
                 'build.js.prod',
