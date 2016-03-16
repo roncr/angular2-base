@@ -73,8 +73,15 @@ gulp.task('test', (done: any) =>
                 done));
 
 
+// --------------
+// Docs
+gulp.task('docs', (done: any) =>
+    runSequence('build.docs',
+                'serve.docs',
+                done));
 
 
+// TODO: pending e2e tesing
 // --------------
 // [done] Build dev.
 // Build e2e.

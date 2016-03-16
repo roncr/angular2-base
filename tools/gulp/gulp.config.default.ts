@@ -11,8 +11,10 @@ export class Config {
     // General
     ENV                  = getEnvironment();
     PORT                 = 7557;
+    DOCS_PORT            = 4003;
     APP_BASE             = '/';
     BOOTSTRAP_MODULE     = 'js/main';
+    APP_TITLE            = 'My Angular2 App';
 
     // Source
     APP_SRC              = 'src';
@@ -29,6 +31,7 @@ export class Config {
     PROD_DEST            = `${this.APP_DIST}/prod`; // TODO: remove this, have only 1 dist
     CSS_DEST             = `${this.APP_DEST}/css`;
     JS_DEST              = `${this.APP_DEST}/js`;
+    DOCS_DEST            = 'docs';
 
     // Target Filenames
     CSS_PROD_BUNDLE      = 'all.css';
